@@ -49,6 +49,7 @@ export interface Device {
   ubicacion: string;
   status: DeviceStatus;
   ultimaConexion: string;
+  forzarPin?: boolean;
 }
 
 export interface HardwareLog {
