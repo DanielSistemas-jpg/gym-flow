@@ -27,10 +27,10 @@ export default function AdminAccess() {
     const u = profiles.find((p) => p.id === userId);
     const mem = memberships.find((m) => m.userId === userId);
     if (!u) return;
-    let resultado: "permitido" | "denegado" | "pin" | "vencido" = "permitido";
+    let resultado: AccessResult = "permitido";
     let mensaje = "Acceso permitido. ¡Bienvenido!";
     if (!mem || mem.status === "vencida") {
-      resultado = "vencido";
+      resultado = "vencida";
       mensaje = "Membresía vencida. Acceso denegado.";
     } else if (mem.status !== "activa") {
       resultado = "denegado";
