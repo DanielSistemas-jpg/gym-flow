@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Fingerprint, KeyRound, Loader2 } from "lucide-react";
 import { fmtDateTime } from "@/lib/format";
+import type { AccessResult } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 type Result = { resultado: string; mensaje: string; nombre: string } | null;
