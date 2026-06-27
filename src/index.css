@@ -1,0 +1,84 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Gym Evolution design system
+ * Brand: red neon #D31413, dark #1C1C1C, light #F4F4F4, gray #8B8C8D
+ * Dark, sporty, minimal SaaS aesthetic.
+ */
+
+@theme {
+  --color-background: #121212;
+  --color-foreground: #f4f4f4;
+  --color-surface: #1c1c1c;
+  --color-surface-2: #242424;
+  --color-card: #1c1c1c;
+  --color-card-foreground: #f4f4f4;
+  --color-popover: #1c1c1c;
+  --color-popover-foreground: #f4f4f4;
+  --color-primary: #d31413;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #242424;
+  --color-secondary-foreground: #f4f4f4;
+  --color-muted: #242424;
+  --color-muted-foreground: #8b8c8d;
+  --color-accent: #2a2a2a;
+  --color-accent-foreground: #f4f4f4;
+  --color-destructive: #d31413;
+  --color-destructive-foreground: #ffffff;
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-border: #2e2e2e;
+  --color-input: #2e2e2e;
+  --color-ring: #d31413;
+  --color-sidebar: #161616;
+  --color-sidebar-foreground: #f4f4f4;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  --font-sans:
+    "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --shadow-glow: 0 0 24px -4px rgba(211, 20, 19, 0.5);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    color-scheme: dark;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(circle at 15% -10%, rgba(211, 20, 19, 0.12), transparent 45%),
+      radial-gradient(circle at 85% 110%, rgba(211, 20, 19, 0.08), transparent 40%);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: linear-gradient(160deg, rgba(36, 36, 36, 0.9), rgba(20, 20, 20, 0.85));
+    border: 1px solid var(--color-border);
+    backdrop-filter: blur(8px);
+  }
+  .neon-text {
+    color: var(--color-primary);
+    text-shadow: 0 0 12px rgba(211, 20, 19, 0.6);
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
