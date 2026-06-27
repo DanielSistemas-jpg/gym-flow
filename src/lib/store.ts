@@ -169,6 +169,31 @@ export const store = {
     }
     emit();
   },
+  toggleForcePin(id: string, value: boolean) {
+    state.devices = state.devices.map((d) => (d.id === id ? { ...d, forzarPin: value } : d));
+    const dev = state.devices.find((d) => d.id === id);
+    if (dev) {
+      state.hardwareLogs = [
+        {
+          id: uid(),
+          deviceId: id,
+          deviceNombre: dev.nombre,
+          nivel: "warning",
+          mensaje: value ? "PIN de contingencia forzado manualmente" : "PIN forzado desactivado",
+          fecha: new Date().toISOString(),
+        },
+        ...state.hardwareLogs,
+      ];
+      if (value) {
+        store.addAlert({
+          tipo: "contingencia",
+          mensaje: `${dev.nombre}: modo PIN forzado activado por el administrador`,
+          canal: "sistema",
+        });
+      }
+    }
+    emit();
+  },
 
   // Alerts
   addAlert(data: Omit<Alert, "id" | "fecha" | "leida">) {
